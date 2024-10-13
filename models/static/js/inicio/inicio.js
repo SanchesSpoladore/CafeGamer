@@ -20,8 +20,6 @@ function toggleMenu(menu) {
 btnMenu.addEventListener("click", () => toggleMenu("principal"));
 btnPerfil.addEventListener("click", () => toggleMenu("perfil"));
 
-// ================================================================
-
 (async () => {
   const interval = 1500;
   const carrosselContainer = document.querySelector(".pontuacoes");

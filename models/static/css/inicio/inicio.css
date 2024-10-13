@@ -139,8 +139,6 @@ body {
   cursor: pointer;
 }
 
-/*=====================================================================================*/
-
 main {
   background-color: black;
 }
@@ -171,7 +169,6 @@ main {
   gap: 50px;
   overflow: hidden;
   width: 100%;
-  /* max-width: calc(100vw - 100px); */
   padding: 0px 50px;
   margin: 0 auto;
   scroll-behavior: smooth;
@@ -203,8 +200,6 @@ main {
 .pontuacao span {
   font-size: 13px;
 }
-
-/*======================================================================================*/
 
 @media (max-width: 768px) {
   .header {
@@ -256,7 +251,6 @@ main {
     font-size: 24px;
   }
 
-  /*===============================*/
   .galeriaJogos {
     padding: 20px 10px;
     gap: 10px;

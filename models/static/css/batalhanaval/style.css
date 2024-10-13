@@ -155,7 +155,6 @@ button:hover {
   }
 }
 
-/* Estilo do modal */
 .modal-do-jogo {
   position: fixed;
   z-index: 1;

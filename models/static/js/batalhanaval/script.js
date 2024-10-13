@@ -176,7 +176,7 @@ function lidarComCliqueNaCelula(event) {
 
     if (navioAcertado.acertos === navioAcertado.tamanho) {
       naviosRestantes[tipoDeNavio]--
-      console.log('Navios Restantes:', naviosRestantes) // Log para depuração
+      console.log('Navios Restantes:', naviosRestantes)
       atualizarStatusDosNavios()
     }
 
