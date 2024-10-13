@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha Naval Arcade</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/batalhanaval/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div id="tela-inicial">
+            <h1>Batalha Naval Arcade</h1>
+            <p>Encontre todos os navios antes que seus pontos acabem!</p>
+            <button id="botao-iniciar">Iniciar Jogo</button>
+        </div>
+        <div id="tela-do-jogo" class="oculto">
+            <div id="tabuleiro-de-jogo"></div>
+            <div id="game-info">
+                <div id="status-do-navio"></div>
+                <button id="botao-reiniciar">Reiniciar Jogo</button>
+            </div>
+        </div>
+
+        <div id="modal-do-jogo" class="modal-do-jogo oculto">
+            <div class="modal-conteudo">
+                <span id="fechar-modal" class="fechar">&times;</span>
+                <h2 id="titulo-modal"></h2>
+                <p id="mensagem-modal"></p>
+                <button id="botao-jogar-novamente" onclick="reiniciarJogo()">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', path='js/batalhanaval/script.js') }}"></script>
+</body>
+</html>

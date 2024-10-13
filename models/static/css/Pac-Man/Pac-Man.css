@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#canvas {
+    background-color: black;
+    transform: translateX(7%);
+}
+
+#backMenu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

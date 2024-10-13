@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+<html lang="pt-br">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Menu</title>  
+    <link rel="stylesheet" href="{{ url_for('static', path='css/Pac-Man/menu.css') }}">   
+</head>  
+<body>  
+    <div class="menu-container">  
+        <img src="{{ url_for('static', path='img/Pac-Man/pac-man-logo.png') }}" alt="logo"><br>  
+        <button id="startGame">Iniciar Jogo</button>  
+        <img src="{{ url_for('static', path='img/Pac-Man/20-pacman-eating-ghosts.gif') }}" alt="GIF do Pacman comendo fantasmas"> <!-- GIF adicionado aqui --> 
+    </div>  
+      
+    <script>  
+        document.getElementById("startGame").addEventListener("click", function(){  
+            window.location.href = ".";  
+        });  
+    </script>  
+</body>  
+</html>

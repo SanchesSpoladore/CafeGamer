@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #76007a;
+  height: 65px;
+  padding: 10px 50px;
+}
+
+.menu-btn {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu-btn i {
+  font-size: 24px;
+}
+
+.menu {
+  position: absolute;
+  top: 65px;
+  background-color: black;
+  padding: 5px;
+  border: 2px solid #da00da;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 100;
+}
+
+.menu:nth-child(3) {
+  right: 50px;
+}
+
+.menu.ativo {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.menu hr {
+  border-color: #da00da;
+}
+
+.menu a {
+  width: 100%;
+  display: block;
+  padding: 5px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.areaPesquisa {
+  display: flex;
+  align-items: center;
+}
+
+#pesquisaInput {
+  width: 250px;
+  height: 35px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  color: #000;
+}
+
+.pesquisa-btn {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.pesquisa-btn img {
+  width: 20px;
+}
+
+.perfil-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-nome {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.perfil-trofeu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trofeu-contador {
+  font-size: 16px;
+}
+
+.perfil-btn {
+  font-size: 27px;
+  padding: 7px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/*=====================================================================================*/
+
+main {
+  background-color: black;
+}
+
+.galeriaJogos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  padding: 50px;
+  height: calc(100vh - 65px);
+  align-items: center;
+  justify-content: center;
+}
+
+.containerJogo {
+  border-radius: 5px;
+}
+
+.containerJogo img {
+  width: 380px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.pontuacoes {
+  display: flex;
+  gap: 50px;
+  overflow: hidden;
+  width: 100%;
+  /* max-width: calc(100vw - 100px); */
+  padding: 0px 50px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+  transition: transform 1s;
+}
+
+.pontuacao {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #da00da;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.pontuacao div {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.pontuacao img {
+  width: 125px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.pontuacao span {
+  font-size: 13px;
+}
+
+/*======================================================================================*/
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .menu {
+    top: 150px;
+    width: 98vw;
+  }
+  .menu:nth-child(3) {
+    right: initial;
+  }
+
+  .menu-btn {
+    margin-top: 10px;
+  }
+
+  .areaPesquisa {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  #pesquisaInput {
+    width: calc(100% - 45px);
+  }
+
+  .perfil-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .perfil-nome {
+    font-size: 18px;
+  }
+
+  .perfil-trofeu {
+    font-size: 16px;
+  }
+
+  .menu-btn i {
+    font-size: 20px;
+  }
+
+  .perfil-btn {
+    font-size: 24px;
+  }
+
+  /*===============================*/
+  .galeriaJogos {
+    padding: 20px 10px;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .containerJogo img {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .menu-btn i {
+    font-size: 18px;
+  }
+
+  #pesquisaInput {
+    width: calc(100% - 40px);
+  }
+
+  .perfil-nome {
+    font-size: 16px;
+  }
+
+  .perfil-btn {
+    font-size: 22px;
+  }
+}
