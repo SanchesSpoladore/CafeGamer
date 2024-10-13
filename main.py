@@ -13,6 +13,10 @@ app.mount("/static", StaticFiles(directory="models/static"), name="static")
 async def index(request: Request):
     return templates.TemplateResponse("inicio/index.html", {"request": request})
 
+@app.get("/login")
+async def login(request: Request):
+    return templates.TemplateResponse("login/index.html", {"request": request})
+
 @app.get("/jogo/SpaceInvaders")
 async def SpaceInvaders(request: Request):
     return templates.TemplateResponse("jogo/SpaceInvaders/index.html", {"request": request})
@@ -22,11 +26,11 @@ async def PacMan(request: Request):
     return templates.TemplateResponse("jogo/Pac-Man/index.html", {"request": request})
 
 @app.get("/jogo/PacMan/menu")
-async def SpaceInvaders(request: Request):
+async def SpaceInvadersMenu(request: Request):
     return templates.TemplateResponse("jogo/Pac-Man/menu.html", {"request": request})
 
 @app.get("/jogo/batalhanaval")
-async def SpaceInvaders(request: Request):
+async def batalhanaval(request: Request):
     return templates.TemplateResponse("jogo/batalhanaval/index.html", {"request": request})
 
 if __name__ == "__main__":
