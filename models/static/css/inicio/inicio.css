@@ -39,6 +39,7 @@ body {
 .menu {
   position: absolute;
   top: 65px;
+  right: 50px;
   background-color: black;
   padding: 5px;
   border: 2px solid #da00da;
@@ -48,10 +49,6 @@ body {
   display: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 100;
-}
-
-.menu:nth-child(3) {
-  right: 50px;
 }
 
 .menu.ativo {
@@ -164,41 +161,80 @@ main {
   border-radius: 5px;
 }
 
-.pontuacoes {
-  display: flex;
-  gap: 50px;
-  overflow: hidden;
+.carrossel-container {
   width: 100%;
-  padding: 0px 50px;
-  margin: 0 auto;
-  scroll-behavior: smooth;
-  transition: transform 1s;
+  overflow: hidden;
+  background-color: black;
+}
+
+.carrossel {
+  display: flex;
+  transition: transform 1s ease-in-out;
 }
 
 .pontuacao {
-  display: flex;
-  width: 250px;
-  flex-direction: column;
-  gap: 20px;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.pontuacao-conteudo {
   background-color: #da00da;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.pontuacao div {
+  border-radius: 8px;
+  padding: 16px;
   display: flex;
-  gap: 50px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pontuacao-header {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.pontuacao img {
-  width: 125px;
-  height: 50px;
+.pontuacao-header h3 {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
+
+.pontuacao-header img {
+  width: 64px;
+  height: 32px;
   object-fit: cover;
+  border-radius: 4px;
 }
 
-.pontuacao span {
-  font-size: 13px;
+.pontuacao-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.pontuacao-footer span {
+  font-size: 14px;
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .pontuacao {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .pontuacao {
+    width: 33.333%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pontuacao {
+    width: 25%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -211,8 +247,6 @@ main {
   .menu {
     top: 150px;
     width: 98vw;
-  }
-  .menu:nth-child(3) {
     right: initial;
   }
 
