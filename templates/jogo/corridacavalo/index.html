@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corrida de Cavalos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/corridacavalo/style.css') }}" />
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>🏇 Corrida de Cavalos 🏇</h1>
+      <div id="pista">
+        <div class="cavalo" id="cavalo1">🐎</div>
+        <div class="cavalo" id="cavalo2">🦄</div>
+        <div class="cavalo" id="cavalo3">🐴</div>
+        <div class="cavalo" id="cavalo4">🦓</div>
+        <div class="cavalo" id="cavalo5">🐐</div>
+      </div>
+      <div id="carteira">
+        Sua carteira: R$<span id="valorCarteira">500</span>
+      </div>
+      <form id="formularioAposta">
+        <input
+          type="number"
+          id="valorAposta"
+          placeholder="Valor da Aposta"
+          required
+        />
+        <select id="cavaloSelecionado">
+          <option value="cavalo1">Cavalo Trovão</option>
+          <option value="cavalo2">Cavalo Tempestade</option>
+          <option value="cavalo3">Cavalo Relâmpago</option>
+          <option value="cavalo4">Cavalo Chama</option>
+          <option value="cavalo5">Cavalo Sombra</option>
+        </select>
+        <button type="button" onclick="iniciarCorrida()">
+          Começar Corrida
+        </button>
+      </form>
+      <div id="resultado"></div>
+    </div>
+
+    <script src="{{ url_for('static', path='js/corridacavalo/script.js') }}"></script>
+  </body>
+</html>

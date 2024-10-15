@@ -33,5 +33,13 @@ async def SpaceInvadersMenu(request: Request):
 async def batalhanaval(request: Request):
     return templates.TemplateResponse("jogo/batalhanaval/index.html", {"request": request})
 
+@app.get("/jogo/corridacavalo")
+async def corridacavalo(request: Request):
+    return templates.TemplateResponse("jogo/corridacavalo/index.html", {"request": request})
+
+@app.get("/jogo/campominado")
+async def campominado(request: Request):
+    return templates.TemplateResponse("jogo/campominado/index.html", {"request": request})
+
 if __name__ == "__main__":
     uvicorn.run("main:app", port=8000, reload=True)
