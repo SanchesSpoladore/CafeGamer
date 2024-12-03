@@ -1,0 +1,169 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+  }
+  
+  .container-lista {
+    background-color: #0c0c0c;
+    border: 4px solid #7700ff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #00ff00;
+    text-shadow: 2px 2px #ff00ff;
+    margin-bottom: 30px;
+  }
+  
+  .lista-usuarios {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .usuario {
+    background-color: #1a1a1a;
+    border: 2px solid #00ffff;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .info-usuario {
+    flex-grow: 1;
+    min-width: 200px;
+    max-width: calc(100% - 100px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .nickname {
+    color: #ffff00;
+    font-size: clamp(14px, 3vw, 18px);
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .nome-usuario {
+    color: #00ffff;
+    font-size: clamp(12px, 2.5vw, 14px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .botao-deletar {
+    flex-shrink: 0;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(10px, 2.5vw, 12px);
+  }
+  
+  .botao-deletar:hover {
+    background-color: #cc0000;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #0c0c0c;
+    border: 4px solid #7700ff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .modal-content h2 {
+    color: #ff0000;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content p {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .botao-confirmar,
+  .botao-cancelar {
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(10px, 2.5vw, 14px);
+  }
+  
+  .botao-confirmar {
+    background-color: #00ff00;
+    color: #000;
+  }
+  
+  .botao-confirmar:hover {
+    background-color: #00cc00;
+  }
+  
+  .botao-cancelar {
+    background-color: #ff0000;
+    color: #fff;
+  }
+  
+  .botao-cancelar:hover {
+    background-color: #cc0000;
+  }
+  
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 26px;
+    }
+  
+    .usuario {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .botao-deletar {
+      margin-top: 10px;
+      align-self: flex-end;
+    }
+  
+    .info-usuario {
+      max-width: 100%;
+    }
+  }
+  

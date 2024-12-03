@@ -1,0 +1,37 @@
+<div class="arcade-profile">
+  <div class="profile-info">
+    <span class="profile-name neon-text">
+      {% if request.cookies.get("nome") %} 
+        {{ request.cookies.get("nome") }} 
+      {% else %} 
+        Jogador Sinistro 
+      {% endif %}
+    </span>
+    <span class="profile-trophy">
+      <span class="trophy-count">
+        {% if request.cookies.get("nick") %} 
+          {{ request.cookies.get("nick") }} 
+        {% else %}
+          Player
+        {% endif %}</span>
+    </span>
+  </div>
+  <button class="perfil-btn" id="perfil-btn">
+    {% if request.cookies.get("imagem") and request.cookies.get("imagem") !=
+    'None' %}
+    <img
+      src="{{ url_for('static', path='pic/users/' + request.cookies.get('imagem') | safe) }}"
+      alt="{{ request.cookies.get('imagem') }}"
+      class="perfil-imagem"
+      id="perfil-imagem"
+    />
+    {% else %}
+    <img
+      src="{{ url_for('static', path='pic/users/user-anon.jpg') }}"
+      alt="Anonimo"
+      class="perfil-imagem"
+      id="perfil-imagem"
+    />
+    {% endif %}
+  </button>
+</div>

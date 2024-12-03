@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --primary-color: #00ff00;
+  --secondary-color: #ff00ff;
+  --background-color: #000033;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-image: url('/static/img/cadastro/fundocadastro.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.conteiner {
+  width: 100%;
+  max-width: 500px;
+}
+
+.arcadeTela {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 4px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--secondary-color);
+}
+
+.falha {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  color: var(--primary-color);
+  text-shadow: 2px 2px var(--secondary-color);
+  word-break: break-word;
+}
+
+.falha::before,
+.falha::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.falha::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--secondary-color);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: falha-anim-2 3s infinite linear alternate-reverse;
+}
+
+.falha::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--primary-color);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: falha-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes falha-anim {
+  0% {
+    clip: rect(17px, 9999px, 94px, 0);
+  }
+  20% {
+    clip: rect(37px, 9999px, 44px, 0);
+  }
+  40% {
+    clip: rect(58px, 9999px, 54px, 0);
+  }
+  60% {
+    clip: rect(80px, 9999px, 66px, 0);
+  }
+  80% {
+    clip: rect(108px, 9999px, 85px, 0);
+  }
+  100% {
+    clip: rect(129px, 9999px, 144px, 0);
+  }
+}
+
+@keyframes falha-anim-2 {
+  0% {
+    clip: rect(129px, 9999px, 36px, 0);
+  }
+  20% {
+    clip: rect(36px, 9999px, 4px, 0);
+  }
+  40% {
+    clip: rect(62px, 9999px, 21px, 0);
+  }
+  60% {
+    clip: rect(92px, 9999px, 6px, 0);
+  }
+  80% {
+    clip: rect(10px, 9999px, 98px, 0);
+  }
+  100% {
+    clip: rect(120px, 9999px, 53px, 0);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGrupo {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.inputGrupo input {
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--text-color);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.inputGrupo label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 16px;
+  color: var(--primary-color);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.inputGrupo input:not(:placeholder-shown) ~ label,
+.inputGrupo input:focus ~ label {
+  top: -20px;
+  font-size: 12px;
+  color: var(--secondary-color);
+}
+
+.inputGrupo input:focus {
+  border-bottom-color: var(--secondary-color);
+}
+
+.inputGrupo input[type='date'] ~ label {
+  color: var(--primary-color);
+}
+
+.inputGrupo input[type='date'] {
+  color: var(--text-color);
+}
+
+.arquivoInput {
+  margin: 10px 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.arquivoInput h3 {
+  font-size: 15px;
+}
+
+.arquivoInput input {
+  display: none;
+}
+
+.arquivoInput label {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 10px;
+  text-align: center;
+}
+
+.arquivoInput label:hover {
+  background-color: var(--secondary-color);
+}
+
+.botaoNeon {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.botaoNeon:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.botaoNeon:hover::before {
+  left: 100%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.conteudoModal {
+  background-color: var(--background-color);
+  margin: 15% auto;
+  padding: 20px;
+  border: 2px solid var(--primary-color);
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.fechar {
+  color: var(--primary-color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#modalMensagem ul {
+  margin: 10px 0 0 10px;
+}
+
+::marker {
+  padding-left: 20px;
+  color: red;
+}
+
+.fechar:hover,
+.fechar:focus {
+  color: var(--secondary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .falha {
+    font-size: 2rem;
+  }
+
+  .arcadeTela {
+    padding: 20px;
+  }
+
+  .inputGrupo input,
+  .inputGrupo label {
+    font-size: 14px;
+  }
+
+  .botaoNeon {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 320px) {
+  .arcadeTela {
+    padding: 15px;
+  }
+
+  .inputGrupo input,
+  .inputGrupo label {
+    font-size: 14px;
+  }
+
+  .botaoNeon {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .arquivoInput label {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}

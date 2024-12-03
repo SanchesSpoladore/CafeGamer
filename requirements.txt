@@ -5,3 +5,7 @@ python-multipart
 pillow
 bcrypt
 python-dotenv
+alembic
+captcha
+psycopg2
+PyJWT

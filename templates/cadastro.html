@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/static/css/cadastro/style.css" />
+    <link rel="icon" href="/static/img/gato.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="conteiner">
+      <div class="arcadeTela">
+        <h1 class="falha" data-text="Cadastro">Cadastro</h1>
+        <form
+          action="/post_cadastro"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="inputGrupo">
+            <input type="text" id="nome" name="nome" value="{{ nome }}" required placeholder=" " />
+            <label for="nome">Nome*</label>
+          </div>
+          <div class="inputGrupo">
+            <input type="text" id="nick" name="nick" value="{{ nick }}" required placeholder=" " />
+            <label for="nick">Nick*</label>
+          </div>
+          <div class="inputGrupo">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value="{{ email }}"
+              required
+              placeholder=" "
+            />
+            <label for="email">Email*</label>
+          </div>
+          <div class="inputGrupo">
+            <input type="tel" id="telefone" name="telefone" value="{{ telefone }}" placeholder=" " />
+            <label for="telefone">Telefone</label>
+          </div>
+          <div class="inputGrupo">
+            <input
+              type="date"
+              id="data_nascimento"
+              name="data_nascimento"
+              value="{{ data_nascimento }}"
+              required
+              placeholder=" "
+            />
+            <label for="data_nascimento">Data de Nascimento*</label>
+          </div>
+          <div class="inputGrupo">
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              required
+              placeholder=" "
+            />
+            <label for="senha">Senha*</label>
+          </div>
+          <div class="inputGrupo">
+            <input
+              type="password"
+              id="confirmacao_senha"
+              name="confirmacao_senha"
+              required
+              placeholder=" "
+            />
+            <label for="confirmacao_senha">Confirmar Senha*</label>
+          </div>
+          <div class="arquivoInput">
+            <h3>Foto de perfil:</h3>
+            <div>
+              <input type="file" id="imagem" name="imagem" value="{{ imagem }}" accept="image/*" />
+              <label for="imagem">Escolher Imagem</label>
+            </div>
+          </div>
+          <div class="captcha-container">
+            <img src="{{ captcha }}" alt="CAPTCHA" />
+            <div class="inputGrupo">
+                <input
+                    type="text"
+                    id="resposta_captcha"
+                    name="resposta_captcha"
+                    placeholder="Digite a palavra acima...*"
+                    required
+                />
+                <label for="resposta_captcha"></label>
+            </div>
+        </div>
+          <button type="submit" class="botaoNeon">Salvar cadastro</button>
+          <div class="text-white">
+            <br>
+            <p>Já possui cadastro?</p> 
+            <p><a href="/login">clique aqui</a> para entrar!</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="mensagemModal" class="modal">
+      <div class="conteudoModal">
+        <span class="fechar">&times;</span>
+        <h2 id="modalTitulo"></h2>
+        <p id="modalMensagem"></p>
+      </div>
+    </div>
+
+    <script src="/static/js/cadastro/script.js"></script>
+
+    {% if request.cookies.get("mensagem") %} {% set tipo_mensagem =
+    request.cookies.get("tipo") %} {% set mensagem =
+    request.cookies.get("mensagem") %} {% set titulo =
+    request.cookies.get("titulo")%} {% endif %}
+  </body>
+</html>

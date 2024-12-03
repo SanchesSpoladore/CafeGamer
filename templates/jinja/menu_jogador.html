@@ -1,0 +1,37 @@
+<nav id="menu-perfil" class="arcade-menu">
+  <ul>
+    <li>
+      <label class="neon-text">
+        <input type="checkbox" id="toggleSound" checked /> Ativar Som
+      </label>
+    </li>
+    <hr />
+    {% if request.cookies.get("nome") %}
+    
+    <li><a href="/usuario/perfil/{{request.cookies.get("id_usuario")}}" class="neon-text">Perfil</a></li>
+    <li>
+      <a href="/embreve" class="neon-text">Recordes</a></li>
+    </li>
+    <li>
+      <a href="/embreve" class="neon-text">Mensagens</a>
+    </li>
+    <hr />
+
+    {% if request.cookies.get("id_usuario_permissao") == '2' %}
+    <li><a href="/admin" class="neon-text">Administrar Usuarios</a></li>
+    <hr />
+    {% endif %}
+
+    {% if request.cookies.get("id_usuario_permissao") == '3' %}
+    <li><a href="/boss" class="neon-text">BOSS MASTER</a></li>
+    <hr />
+    {% endif %}
+
+    <li><a href="/sair" class="neon-text">Sair</a></li>
+    {% else %}
+    <li><a href="/login" class="neon-text">Login</a></li>
+    <hr />
+    <li><a href="/cadastro" class="neon-text">Cadastrar</a></li>
+    {% endif %}
+  </ul>
+</nav>

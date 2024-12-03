@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --primary-color: #00ff00;
+  --secondary-color: #ff00ff;
+  --background-color: #000033;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-image: url('/static/img/login/fundologin.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.conteiner {
+  width: 100%;
+  max-width: 400px;
+}
+
+.telaArcade {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 4px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--secondary-color);
+}
+
+.falha {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  color: var(--primary-color);
+  text-shadow: 2px 2px var(--secondary-color);
+}
+
+.falha::before,
+.falha::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.falha::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--secondary-color);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: falha-anim-2 3s infinite linear alternate-reverse;
+}
+
+.falha::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--primary-color);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: falha-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes falha-anim {
+  0% {
+    clip: rect(17px, 9999px, 94px, 0);
+  }
+  20% {
+    clip: rect(37px, 9999px, 44px, 0);
+  }
+  40% {
+    clip: rect(58px, 9999px, 54px, 0);
+  }
+  60% {
+    clip: rect(80px, 9999px, 66px, 0);
+  }
+  80% {
+    clip: rect(108px, 9999px, 85px, 0);
+  }
+  100% {
+    clip: rect(129px, 9999px, 144px, 0);
+  }
+}
+
+@keyframes falha-anim-2 {
+  0% {
+    clip: rect(129px, 9999px, 36px, 0);
+  }
+  20% {
+    clip: rect(36px, 9999px, 4px, 0);
+  }
+  40% {
+    clip: rect(62px, 9999px, 21px, 0);
+  }
+  60% {
+    clip: rect(92px, 9999px, 6px, 0);
+  }
+  80% {
+    clip: rect(10px, 9999px, 98px, 0);
+  }
+  100% {
+    clip: rect(120px, 9999px, 53px, 0);
+  }
+}
+
+.inputGrupo {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.inputGrupo input {
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--text-color);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.inputGrupo label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 16px;
+  color: var(--primary-color);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.inputGrupo input:focus ~ label,
+.inputGrupo input:valid ~ label {
+  top: -20px;
+  font-size: 12px;
+  color: var(--secondary-color);
+}
+
+.inputGrupo input:focus {
+  border-bottom-color: var(--secondary-color);
+}
+
+.neonBotao {
+  display: inline-block;
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.neonBotao:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: var(--background-color);
+  margin: 15% auto;
+  padding: 20px;
+  border: 2px solid var(--primary-color);
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.close {
+  color: var(--primary-color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--secondary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .falha {
+    font-size: 2rem;
+  }
+
+  .telaArcade {
+    padding: 20px;
+  }
+
+  .inputGrupo input,
+  .inputGrupo label {
+    font-size: 14px;
+  }
+
+  .neonBotao {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 320px) {
+  .telaArcade {
+    padding: 15px;
+  }
+
+  .inputGrupo input,
+  .inputGrupo label {
+    font-size: 12px;
+  }
+
+  .neonBotao {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

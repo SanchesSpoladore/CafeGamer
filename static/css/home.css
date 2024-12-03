@@ -1,0 +1,340 @@
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-primary: #ff00ff;
+  --color-secondary: #00ffff;
+  --color-accent: #ffff00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.menu-btn,
+.perfil-btn {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.arcade-menu {
+  position: absolute;
+  top: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 250px;
+  padding: 1rem;
+  display: none;
+  border: 2px solid var(--color-secondary);
+}
+
+#menu-perfil {
+  right: 15px;
+}
+
+.arcade-menu.active {
+  display: block;
+}
+
+.arcade-menu ul {
+  list-style-type: none;
+}
+
+.arcade-menu ul li {
+  margin-bottom: 0.5rem;
+}
+
+.arcade-menu ul li a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.arcade-menu ul li a:hover {
+  color: var(--color-accent);
+}
+
+.areaPesquisa {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#pesquisaInput {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  color: var(--color-text);
+  padding: 0.5rem;
+  font-family: 'Press Start 2P', cursive;
+  width: 200px;
+}
+
+.pesquisa-btn {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.pesquisa-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.sugestoes {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+}
+
+.sugestoes li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.sugestoes li:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.arcade-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.profile-name {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+
+.profile-trophy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-accent);
+  font-size: 0.5rem;
+}
+
+.perfil-imagem {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.galeriaJogos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.containerJogo {
+  position: relative;
+  width: calc(33.333% - 1rem);
+  max-width: 300px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 3px solid var(--color-primary);
+  transition: transform 0.3s ease;
+  background-color: #000;
+}
+
+.containerJogo:hover {
+  transform: scale(1.05);
+}
+
+.containerJogo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.containerJogo::after {
+  content: 'JOGAR';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.containerJogo:hover::after {
+  opacity: 1;
+}
+
+.dados_jogo {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-top: 3px solid var(--color-primary);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.dados_jogo p {
+  margin: 0;
+}
+
+.dados_jogo input {
+  margin-top: 0.5rem;
+  width: auto;
+  padding: 0.5rem 1rem;
+  height: 20px;
+}
+
+.carrossel-container {
+  overflow: hidden;
+  padding: 2rem 0;
+  background-color: rgba(255, 0, 255, 0.1);
+  width: 100%;
+}
+
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 10px;
+}
+
+.pontuacao {
+  flex: 0 0 auto;
+  max-width: 350px;
+  width: 100%;
+  min-width: 300px;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgba(255, 0, 255, 0.03);
+}
+
+.pontuacao-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  height: 100%;
+}
+
+.pontuacao-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.pontuacao-header h3 {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.pontuacao-header img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--color-accent);
+}
+
+.pontuacao-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pontuacao-footer p {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.pontuacao-footer span {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
+    0 0 35px #bb06a3, 0 0 40px #bb06a3, 0 0 50px #bb06a3, 0 0 75px #bb06a3;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .areaPesquisa {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .containerJogo {
+    width: calc(50% - 1rem);
+  }
+
+  .pontuacao {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerJogo {
+    width: 100%;
+  }
+
+  #pesquisaInput {
+    width: 100%;
+  }
+
+  .pontuacao {
+    width: 200px;
+  }
+}

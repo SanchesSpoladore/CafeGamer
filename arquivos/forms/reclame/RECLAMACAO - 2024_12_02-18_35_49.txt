@@ -1,0 +1,9 @@
+RECLAMAÇÃO
+    
+    Nome: Admin
+    Email: admin@email.com
+    Motivo: travamento
+    Descricao: asd as adsa sasd
+    
+    Data: 2024_12_02-18_35_43
+    

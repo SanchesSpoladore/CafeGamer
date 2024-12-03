@@ -1,0 +1,21 @@
+<div class="carrossel-container">
+  <div id="carrossel" class="carrossel">
+    {% for pontuacao in lista_pontuacao %}
+    <div class="pontuacao">
+      <div class="pontuacao-conteudo">
+        <div class="pontuacao-header">
+          <img
+            src="{{ url_for('static', path='img/capas/' ~ pontuacao.capajogo) }}"
+            alt="{{ pontuacao.jogo }}"
+          />
+          <h3>{{ pontuacao.nome }}</h3>
+        </div>
+        <div class="pontuacao-footer">
+          <p>{{ pontuacao.pontuacao | int }} Pontos</p>
+          <span>{{ pontuacao.datapontuacao.strftime('%d/%m/%Y') }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

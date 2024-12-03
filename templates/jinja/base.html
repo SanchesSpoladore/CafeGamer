@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Café Games Arcade - {{ titulo }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="icon" href="{{ url_for('static', path='img/gato.ico') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/' + pagina + '.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz4fnFO9gybBogGzZ1qK1G3kt5y6c3+MZgZ3IO6E9nswGsWfPTSX8Nu56i"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-Lzma8D8K6pF0bRSRMxOJTcJ5bWuMJ/4xGpOYHLvhoAXnpG05X4E4JON31n6AG4ER"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="arcade-cabinet">
+      <header class="header">
+        {% include "jinja/menu_principal.html" %} 
+        <!-- {% include "jinja/barra_pesquisa.html" %} -->
+        <div class="logo">
+          <img src="/static/img/gato.ico" alt="" width="30"> Café Games 
+        </div>
+        <div class="perfil-container">
+          {% include "jinja/perfil_jogador.html" %}
+        </div>
+        {% include "jinja/menu_jogador.html" %}
+      </header>
+
+      <main class="arcade-screen">{% block conteudo %}{% endblock %}</main>
+
+      <footer class="arcade-footer">{% include "jinja/rodape.html" %}</footer>
+    </div>
+
+
+    
+    <script src="{{ url_for('static', path='js/' + pagina + '.js') }}"></script>
+    {% block script %}{% endblock %}
+  </body>
+</html>

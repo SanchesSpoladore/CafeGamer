@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@font-face {
+    font-family: 'depixelklein';
+    src: url('/static/fonts/depixelklein.woff') format('woff');
+}
+
+
+:root {
+    --color-cYellow4: #ffe44b;
+    --color-cPurple2: #010028;
+    --color-cYellow: #f9b113;
+}
+
+.input-container input {
+    font-family: 'depixelklein', sans-serif;
+}
+
+
+.input-container {
+    position: relative;
+    padding: 0 20px;
+}
+
+.input-container span {
+    background: var(--color-cPurple2);
+    position: absolute;
+    height: 34px;
+    left: 10px;
+    top: 55%;
+    transform: translateY(-50%);
+    width: calc(100% - 20px);
+    box-shadow: 2px 2px 0 var(--color-cYellow4);
+}
+
+.input-container span:before, .input-container span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 20px;
+    background: var(--color-cPurple2);
+    box-shadow: 0 2px 0 var(--color-cYellow4);
+    animation: fadeAnimation 0.3s infinite alternate;
+}
+
+
+.input-container span:before {
+    left: -10px;
+}
+
+.input-container span:after {
+    right: -10px;
+}
+
+.input-container input {
+    background: var(--color-cPurple2);
+    box-shadow: 0 2px 0 var(--color-cYellow4);
+    height: 50px;
+    margin-top: 10px;
+    padding: 0 20px;
+    color: var(--color-cYellow);
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes fadeAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.input-container:has(input:focus) span:before, 
+.input-container:has(input:focus) span:after {
+    animation: none;
+}
+
+
+.input-container:has(input:not(:required)) span:before,
+.input-container:has(input:not(:required)) span:after {
+    animation: none;
+}
+
+/* .input-container:has(input:focus) span:before, 
+.input-container:has(input:focus) span:after {
+    animation: none;
+} */

@@ -1,0 +1,59 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Games Arcade - {{ nome_jogo }}</title>
+</head>
+
+<body style="background-color: black;">
+  <iframe id="meuIframe" style="
+  width: 100%;
+  height: 100%;
+  border: none;
+" src="{{ url_for('jogos', path=caminho_jogo) }}"></iframe>
+</body>
+
+<script>
+  window.addEventListener("message", (event) => {
+    if (event.data.gameOver) {
+      salvarRecord(event.data.score);
+    }
+  });
+  
+  async function salvarRecord(score) {
+    const idusuario = obterCookieJogo("id_usuario");
+    const nomeJogo = "{{ nome_jogo }}";
+  
+    console.log(idusuario, nomeJogo)
+    try {
+      const response = await fetch(`/jogos/SalvarRecord`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nome_jogo: nomeJogo, pontuacao: score, id_usuario: idusuario })
+      });
+      
+      console.log(response)
+      if (!response.ok) {
+        throw new Error("Erro ao salvar a pontuação.");
+      }
+  
+      console.log("Pontuação salva com sucesso.");
+    } catch (error) {
+      console.error("Erro ao salvar a pontuação:", error);
+      alert("Não foi possível salvar a pontuação no momento.");
+    }
+  }
+  
+  function obterCookieJogo(nome) {
+    const valor = `; ${document.cookie}`;
+    const partes = valor.split(`; ${nome}=`);
+    if (partes.length === 2) return partes.pop().split(";").shift();
+    return null;
+  }
+  </script>
+
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestões</title>
+    <link rel="stylesheet" href="/static/css/reclame.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sugestões</h1>
+        <form action="/post_sugestoes" method="post">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="sugestao">Explique a sugestão</label>
+            <textarea type="text" id="sugestao" name="sugestao" rows="8"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

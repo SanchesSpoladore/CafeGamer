@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/cobrinha/style.css') }}">
+    <title>Jogo da Cobrinha 🐍</title>
+</head>
+<body>
+    <div class="container">
+        <div class="pontuacao">Pontuação: <span class="pontuacao--value">00</span></div>
+        <div class="level">Level: <span class="level--value">0</span></div>
+    </div>
+    <div class="menu">
+        <span class="game-over">Game Over</span>
+        <span class="pontuacao-final">Pontuação: <span>00</span></span>
+        <button class="btn-play">
+            Jogar novamente
+        </button>
+    </div>
+    <canvas width="600" height="600"></canvas>
+    <div class="maiorPontuacao">
+        <span>Maior Pontuação:</span> 
+        <span class="maiorPontuacao--value">0</span>
+    </div>
+    <div class="nomeJogador">
+        <span>Jogador:</span> 
+        <span class="nomeJogador--value">-</span>
+    </div>
+    <script src="/static/js/cobrinha/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+.tela-arcade {
+  width: 100%;
+  max-width: 800px;
+  background-color: #4a4a4a;
+  border: 20px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.tela {
+  background-color: #000;
+  border: 10px solid #333;
+  border-radius: 10px;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+
+.tela iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.tela::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.erro {
+  font-size: 3rem;
+  position: relative;
+  color: #0f0;
+  text-shadow: 2px 2px #f00, -2px -2px #00f;
+  animation: erro 1s infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes erro {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.menssagem {
+  font-size: 1.2rem;
+  color: #0f0;
+  margin-bottom: 2rem;
+  animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.area-jogo {
+  width: 100%;
+  height: 150px;
+  border: 2px solid #0f0;
+  position: relative;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.jogador {
+  width: 30px;
+  height: 30px;
+  background-color: #ff0;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.moeda {
+  width: 20px;
+  height: 20px;
+  background-color: #f00;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  animation: movemoeda 3s linear infinite;
+}
+
+@keyframes movemoeda {
+  0% {
+    right: -20px;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+.instrucoes {
+  font-size: 0.8rem;
+  color: #0f0;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+input,
+button {
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0f0;
+  color: #000;
+}
+
+.controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.joystick {
+  width: max-content;
+  height: 80px;
+  background-color: #f00;
+  padding: 0px 5px;
+  border: 10px solid #a00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.joystick:hover {
+  background-color: #e20000;
+  transition: 200ms linear;
+}
+
+.botoes {
+  display: flex;
+  gap: 20px;
+}
+
+.botao {
+  width: 60px;
+  height: 60px;
+  background-color: #00f;
+  border-radius: 50%;
+  border: 10px solid #00a;
+}
+
+@media (max-width: 600px) {
+  .erro {
+    font-size: 2rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  .controles {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

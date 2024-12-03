@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Arcade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: 
+                radial-gradient(#ffffff33 2px, transparent 2px),
+                radial-gradient(#ffffff33 2px, transparent 2px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+
+        .top-button-container {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .container-perfil {
+            background-color: #0c0c0c;
+            border: 4px solid #00ff00;
+            border-radius: 10px;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        }
+
+        .container-foto-perfil {
+            flex: 0 0 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .foto-perfil {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #ff00ff;
+            position: relative;
+        }
+
+        .rotulo-foto-perfil {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #ffff00;
+            color: #000;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .info-perfil {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #00ff00;
+            text-shadow: 2px 2px #ff00ff;
+            margin-bottom: 20px;
+        }
+
+        .grupo-formulario {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00ffff;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            background-color: #1a1a1a;
+            border: 2px solid #00ffff;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #ff00ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #cc00cc;
+        }
+
+        @media (max-width: 768px) {
+            .container-perfil {
+                flex-direction: column;
+            }
+
+            .container-foto-perfil {
+                margin-bottom: 20px;
+            }
+
+            .info-perfil {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-button-container">
+        <a href="/" class="btn btn-primary btn-lg" style="background-color: #ff00ff; color: #fff; border: none; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-family: 'Press Start 2P', cursive;">
+            Voltar à Página Inicial
+        </a>
+    </div>
+    <div class="container-perfil">
+        <div class="container-foto-perfil">
+            <div class="foto-perfil">
+
+                <div class="foto-perfil">
+                    {% if request.cookies.get("imagem") and request.cookies.get("imagem") != 'None' %}
+                    <img
+                        src="{{ url_for('static', path='pic/users/' + request.cookies.get('imagem') | safe) }}"
+                        alt="{{ request.cookies.get('imagem') }}"
+                        class="perfil-imagem"
+                        id="perfil-imagem"
+                        style="width: 100%;
+                            height: 100%; 
+                            object-fit: cover;
+                            border-radius: 50%;
+                            display: block;"
+                    />
+                    {% else %}
+                    <img
+                        src="{{ url_for('static', path='pic/users/user-anon.jpg') }}"
+                        alt="Anonimo"
+                        class="perfil-imagem"
+                        id="perfil-imagem"
+                    />
+                    {% endif %}
+                </div>
+                
+
+
+                <!-- <img src="/placeholder.svg?height=200&width=200" alt="Foto de Perfil" width="200" height="200">
+                <label for="upload-foto" class="rotulo-foto-perfil">📷</label>
+                <input type="file" id="upload-foto" hidden accept="image/*"> -->
+            </div>
+            <button id="botao-editar">Editar Perfil</button>
+            <button id="botao-salvar" style="display: none;">Salvar Alterações</button>
+        </div>
+        <div class="info-perfil">
+            <h1 id="exibir-apelido">{{ usuario.Nick }}</h1>
+            <div class="grupo-formulario">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" value="{{ usuario.Email }}" disabled>
+            </div>
+            <div class="grupo-formulario">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" value="{{ usuario.Nome }}" disabled>
+            </div>
+            <div class="grupo-formulario">
+                <label for="apelido">Apelido</label>
+                <input type="text" id="apelido" value="{% if usuario.Nick != None %}{{ usuario.Nick }}{% else %}-{% endif %}" disabled>
+            </div>
+            <div class="grupo-formulario">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" value="{% if usuario.Telefone != None %}{{ usuario.Telefone }}{% else %}-{% endif %}" disabled>
+            </div>
+            <div class="grupo-formulario">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" value="2000-01-01" disabled>
+            </div>
+            <div class="grupo-formulario">
+                <label for="bio">Biografia</label>
+                <textarea id="bio" disabled>Entusiasta de arcade e campeão de recordes. Como fantasmas no café da manhã e salvo princesas antes do almoço!</textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
